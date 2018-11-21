@@ -1,4 +1,5 @@
-##Automated Irrigation System based on Weather Data
+Automated Irrigation System based on Weather Data
+=====
 
 A python implementation of an automated irrigation system based on weather data which can be used in a large scale case like a farm or even in a smale case like a home garden. GUI is implemented in *tkinter*
 
