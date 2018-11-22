@@ -36,7 +36,7 @@ def generate_value(city_name):
     temp = ds_data['currently']['temperature']
     precip = ds_data['daily']['data'][0]['precipIntensityMax'] * 24
     print("\nThe Temperature at " + str(datetime.now()) + " is " + str(temp) + " F")
-
+    dict1 = {"temp": temp}
     # change condition for return statement
     #pass dict into another function?
     
@@ -49,7 +49,7 @@ def generate_value(city_name):
     agro_data = request_agro.json()
     soil_moisture = agro_data["moisture"]
     print("\nMositure is: " + str(soil_moisture*100) + "%")
-
+    dict1["moisture"] = soil_moisture
     if(soil_moisture < 0.30):
         soil_type = "dry"
     elif (soil_moisture < 65):
@@ -65,17 +65,18 @@ def generate_value(city_name):
         temp_condition = "low"
 
     WATER_REQUIRED = water_requirement(soil_type, temp_condition)
-
+    dict1["WATER_REQUIRED"] = WATER_REQUIRED
     WATER_AFTER_PRECIP = WATER_REQUIRED - precip
-
+    dict1["precip"] = precip
+    dict1["WATER_AFTER_PRECIP"] = WATER_AFTER_PRECIP
     print("Water Required is: " + str(WATER_REQUIRED) + " mm")
     print("Rain predicted is: " + str(precip) + " mm")
     print("Water Required after rain is: " + str(WATER_AFTER_PRECIP) + " mm")
 
     if(WATER_AFTER_PRECIP<=0):
-        return 0
-    else:
-        return WATER_AFTER_PRECIP
+        dict1["WATER_AFTER_PRECIP"] = 0
+    
+    return dict1
     '''
     #weather API
     
@@ -92,7 +93,7 @@ def generate_value(city_name):
         return 1
     return 0 
     '''
-
+'''
 def main():
 
     address = input("Enter the address of the place: ")
@@ -105,3 +106,11 @@ def main():
 
 if __name__ == '__main__':
     main()
+'''
+
+
+
+
+
+    
+
