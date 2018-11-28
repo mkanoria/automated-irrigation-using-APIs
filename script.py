@@ -77,22 +77,7 @@ def generate_value(city_name):
         dict1["WATER_AFTER_PRECIP"] = 0
     
     return dict1
-    '''
-    #weather API
-    
-    # code to generate and parse data from API
-    request = requests.get(url)
-    data = request.json()
-    # weather_type = data["weather"][0]["main"]
-    weather_description = data["weather"][0]["description"]
-    weather_id = data["weather"][0]["id"]
-    code_group = weather_id // 100
-    print(weather_description + " " + str(weather_id) + " " + str(code_group))
-    c = [2,3,5] #weather type --> thunderstorm, drizzle, rain
-    if code_group in c:
-        return 1
-    return 0 
-    '''
+ 
 '''
 def main():
 
