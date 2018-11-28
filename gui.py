@@ -2,6 +2,9 @@ from tkinter import *
 from script import generate_value
 from hardware_control import turned_on
 import sys
+GPIO.setmode(GPIO.BCM)
+GPIO.setwarnings(False)
+GPIO.setup(18,GPIO.OUT)
 
 def stop_fun():
     root.destroy()
